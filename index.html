@@ -418,3 +418,7 @@ footer{padding:36px clamp(16px,6vw,88px) 48px;font-family:var(--mono);font-size:
 </script>
 </body>
 </html>
+<style>.frame iframe{top:0!important;height:100%!important}</style>
+<script>
+(function(){var css="#topbar,#timeline{display:none!important}html,body{height:100%!important;min-height:0!important;overflow:hidden!important}#app{grid-template-rows:1fr!important;height:100%!important;min-height:0!important;max-height:100%!important;padding:0!important;gap:0!important}#main{height:100%!important;min-height:0!important}";document.querySelectorAll(".frame iframe").forEach(function(f){function fix(){try{var d=f.contentDocument;if(!d||!d.head||d.getElementById("__embed"))return;var s=d.createElement("style");s.id="__embed";s.textContent=css;d.head.appendChild(s);f.contentWindow.dispatchEvent(new Event("resize"));}catch(e){}}f.addEventListener("load",function(){fix();setTimeout(fix,1500);});fix();});})();
+</script>
