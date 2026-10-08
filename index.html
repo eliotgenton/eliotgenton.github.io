@@ -79,7 +79,7 @@ p{margin:0 0 16px;max-width:65ch}
 .project p{font-size:16px;margin:0}
 .project .links{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:auto;padding-top:10px;font-family:var(--mono);font-size:12px}
 .cv{list-style:none;margin:28px 0 0;padding:0;max-width:260px;border-top:1px solid var(--line)}
-.cv li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;line-height:1.35}
+.cv li{display:grid;grid-template-columns:40px 22px minmax(0,1fr);gap:10px;align-items:start;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;line-height:1.35}
 .cv .y{font-family:var(--mono);font-size:11px;color:var(--glow);padding-top:2px;font-variant-numeric:tabular-nums}
 .cv i{display:block;font-style:normal;font-size:12.5px;color:var(--mist);margin-top:1px}
 .wip{margin-top:30px;border:1px dashed rgba(233,227,214,.22);border-radius:6px;padding:14px 14px 10px;max-width:260px}
@@ -92,7 +92,9 @@ p{margin:0 0 16px;max-width:65ch}
 .wip li+li .dot{animation-delay:1.2s}
 @keyframes wip{50%{opacity:.25}}
 @media (prefers-reduced-motion:reduce){.wip .dot{animation:none}}
-.note{margin-top:26px;font-size:15px;color:var(--mist);border-left:2px solid var(--glow);padding-left:14px;max-width:60ch}
+.cv .mk{width:22px;height:22px;margin-top:-1px}
+.note .medal{flex:none;width:26px;height:26px}
+.note{display:flex;gap:12px;align-items:center;margin-top:26px;font-size:15px;color:var(--mist);border-left:2px solid var(--glow);padding-left:14px;max-width:60ch}
 .screens{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:8px}
 @media (max-width:900px){.screens{grid-template-columns:1fr}}
 .screen{margin:0;display:flex;flex-direction:column;gap:12px;min-width:0}
@@ -125,6 +127,16 @@ blockquote::after{content:"\201D";color:var(--glow)}
 .shelves{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px}
 @media (max-width:760px){.shelves{grid-template-columns:1fr}}
 .shelf h3{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);font-weight:400;margin:0 0 12px}
+.otc-art{position:relative;width:210px;height:150px;margin-top:34px}
+.otc-art svg{position:absolute;top:0}
+.vinyl{left:0;width:136px;height:136px;animation:spin 9s linear infinite}
+.reel{left:100px;top:46px!important;width:100px;height:100px;animation:spin 14s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.vinyl,.reel{animation:none}}
+@media (max-width:760px){.otc-art{display:none}}
+a.title{display:inline-block;text-decoration:none}
+a.title::after{content:" \2197";font-family:var(--mono);font-size:12px;color:var(--mist);vertical-align:3px}
+a.title:hover::after{color:var(--glow)}
 .tracks{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
 .tracks li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
 .tracks .n{font-family:var(--mono);font-size:12px;color:var(--glow);padding-top:4px}
@@ -173,20 +185,20 @@ footer{padding:36px clamp(16px,6vw,88px) 48px;font-family:var(--mono);font-size:
     <div class="side">
       <div class="label">about<span>PhD candidate · Fellow</span></div>
       <ol class="cv" aria-label="CV highlights">
-        <li><span class="y">2026&ndash;</span><span>Fellow, Harvard Physics<i>BAEF</i></span></li>
-        <li><span class="y">2023&ndash;</span><span>PhD, ULB<i>F.R.S.-FNRS Aspirant</i></span></li>
-        <li><span class="y">2022</span><span>Master&rsquo;s thesis, Harvard<i>IceCube</i></span></li>
-        <li><span class="y"></span><span>Chiba University<i>IceCube hardware</i></span></li>
-        <li><span class="y">2021</span><span>CERN<i>summer student</i></span></li>
-        <li><span class="y"></span><span>ENS Paris<i>master&rsquo;s</i></span></li>
-        <li><span class="y"></span><span>Manchester<i>BSc &amp; MSc · Erasmus, FU Berlin</i></span></li>
+        <li><span class="y">2026&ndash;</span><svg class="mk" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="rgba(233,227,214,.18)"/><text x="12" y="16.3" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="12.5" fill="#f0a85e">H</text></svg><span>Fellow, Harvard Physics<i>BAEF</i></span></li>
+        <li><span class="y">2023&ndash;</span><svg class="mk" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="rgba(233,227,214,.18)"/><path d="M12 6.5 L7.5 14.5 M12 6.5 L16.5 14.5 M7.5 14.5 L16.5 14.5 M12 6.5 L12 17.5" stroke="#79bfdc" stroke-width=".9" fill="none"/><circle cx="12" cy="6.5" r="1.7" fill="#79bfdc"/><circle cx="7.5" cy="14.5" r="1.7" fill="#79bfdc"/><circle cx="16.5" cy="14.5" r="1.7" fill="#79bfdc"/><circle cx="12" cy="11.8" r="1.7" fill="#e9e3d6"/></svg><span>PhD, ULB<i>F.R.S.-FNRS Aspirant</i></span></li>
+        <li><span class="y">2022</span><svg class="mk" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="rgba(233,227,214,.18)"/><text x="12" y="16.3" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="12.5" fill="#f0a85e">H</text></svg><span>Master&rsquo;s thesis, Harvard<i>IceCube</i></span></li>
+        <li><span class="y"></span><svg class="mk" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="rgba(233,227,214,.18)"/><text x="12" y="16.4" text-anchor="middle" font-family="serif" font-size="12" fill="#e9e3d6">千</text></svg><span>Chiba University<i>IceCube hardware</i></span></li>
+        <li><span class="y">2021</span><svg class="mk" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="rgba(233,227,214,.18)"/><ellipse cx="12" cy="12" rx="6.5" ry="6.5" fill="none" stroke="#79bfdc" stroke-width="1.1"/><circle cx="18.5" cy="12" r="1.8" fill="#f0a85e"/><path d="M5.5 12 h-2" stroke="#79bfdc" stroke-width="1.1"/></svg><span>CERN<i>summer student</i></span></li>
+        <li><span class="y"></span><svg class="mk" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="rgba(233,227,214,.18)"/><text x="12" y="16.3" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-style="italic" font-size="12.5" fill="#e9e3d6">É</text></svg><span>ENS Paris<i>master&rsquo;s</i></span></li>
+        <li><span class="y"></span><svg class="mk" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="rgba(233,227,214,.18)"/><ellipse cx="12" cy="13.2" rx="3.3" ry="4.6" fill="#f0a85e"/><path d="M8.9 12.2 h6.2 M9 14.6 h6" stroke="#0e1219" stroke-width="1.1"/><ellipse cx="8.6" cy="8.6" rx="2.6" ry="1.6" transform="rotate(-30 8.6 8.6)" fill="none" stroke="#e9e3d6" stroke-width=".9"/><ellipse cx="15.4" cy="8.6" rx="2.6" ry="1.6" transform="rotate(30 15.4 8.6)" fill="none" stroke="#e9e3d6" stroke-width=".9"/></svg><span>Manchester<i>BSc &amp; MSc · Erasmus, FU Berlin</i></span></li>
       </ol>
     </div>
     <div class="about">
       <div>
-        <h2 id="about-h">Physicist, European.</h2>
+        <h2 id="about-h">European physicist.</h2>
         <p>I&rsquo;m a PhD student at the Université libre de Bruxelles (ULB) as an F.R.S.-FNRS Aspirant, and a Fellow in the Harvard Department of Physics, supported by the Belgian American Educational Foundation. I work in the IceCube and KM3NeT collaborations, supervised by Juan Antonio Aguilar at ULB and Carlos Argüelles at Harvard.</p>
-        <p>I grew up in Brussels and studied in Manchester, Berlin and Paris, with a summer at CERN along the way. Away from the detectors I am learning the technical and policy sides of AI safety, I care about Europe&rsquo;s future in science and technology, and I spend too much time digging for acid house and ambient trance records. I play piano and harp, speak French, English, German and some Japanese, and dive whenever I can.</p>
+        <p>I grew up in Brussels and studied in Manchester, Berlin and Paris, with a summer at CERN along the way. Away from the detectors I am learning the technical and policy sides of AI safety, I care about Europe&rsquo;s future in science and technology, and I spend too much time digging for acid house and trance records. I play piano and harp, speak French, English, German and some Japanese, and dive whenever I can.</p>
       </div>
       <figure>
         <img src="/me.svg" alt="Portrait of Eliot Genton" width="480" height="480">
@@ -241,7 +253,7 @@ footer{padding:36px clamp(16px,6vw,88px) 48px;font-family:var(--mono);font-size:
           <div class="links"><a href="#outreach">See dimuon events</a></div>
         </article>
       </div>
-      <p class="note">IceCube&rsquo;s discovery of high-energy astrophysical neutrinos was recognized by the 2026 Nobel Prize in Physics.</p>
+      <p class="note"><svg class="medal" viewBox="0 0 28 28" aria-hidden="true"><path d="M9 2 L12.5 11 M19 2 L15.5 11" stroke="#79bfdc" stroke-width="2.2" stroke-linecap="round"/><circle cx="14" cy="18" r="7.5" fill="#f0a85e"/><circle cx="14" cy="18" r="5.3" fill="none" stroke="#c8662f" stroke-width=".8"/><path d="M11.2 18.6 q1.4 -3.2 2.8 -0.6 q1.4 2.6 2.8 -0.6" stroke="#0e1219" stroke-width=".9" fill="none"/></svg><span>IceCube&rsquo;s discovery of high-energy astrophysical neutrinos was recognized by the 2026 Nobel Prize in Physics, awarded to Francis Halzen.</span></p>
     </div>
   </section>
 
@@ -334,7 +346,13 @@ footer{padding:36px clamp(16px,6vw,88px) 48px;font-family:var(--mono);font-size:
   </section>
 
   <section id="off-the-clock" aria-labelledby="otc-h">
-    <div class="label">off the clock<span>three songs, three films</span></div>
+    <div class="side">
+      <div class="label">off the clock<span>three songs, three films</span></div>
+      <div class="otc-art" aria-hidden="true">
+        <svg class="vinyl" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="#06090e" stroke="rgba(233,227,214,.16)"/><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(233,227,214,.07)"/><circle cx="50" cy="50" r="33" fill="none" stroke="rgba(233,227,214,.07)"/><circle cx="50" cy="50" r="26" fill="none" stroke="rgba(233,227,214,.07)"/><path d="M18 30 A38 38 0 0 1 36 15" stroke="rgba(233,227,214,.22)" stroke-width="1.4" fill="none" stroke-linecap="round"/><circle cx="50" cy="50" r="15" fill="#f0a85e"/><path d="M42 50 a8 8 0 0 1 16 0" stroke="#0e1219" stroke-width="1" fill="none"/><circle cx="50" cy="50" r="2" fill="#06090e"/></svg>
+        <svg class="reel" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#151b26" stroke="rgba(233,227,214,.2)"/><circle cx="50" cy="50" r="8" fill="none" stroke="#79bfdc" stroke-width="2"/><g fill="#0e1219" stroke="rgba(121,191,220,.55)" stroke-width="1.2"><circle cx="50" cy="24" r="11"/><circle cx="72.5" cy="37" r="11"/><circle cx="72.5" cy="63" r="11"/><circle cx="50" cy="76" r="11"/><circle cx="27.5" cy="63" r="11"/><circle cx="27.5" cy="37" r="11"/></g></svg>
+      </div>
+    </div>
     <div>
       <h2 id="otc-h">What I&rsquo;m listening to and watching.</h2>
       <p class="month">October 2026</p>
@@ -342,17 +360,17 @@ footer{padding:36px clamp(16px,6vw,88px) 48px;font-family:var(--mono);font-size:
         <div class="shelf">
           <h3>Listening</h3>
           <ol class="tracks">
-            <li><span class="n">A1</span><div><div class="title">Universal Entity</div><div class="by">Ketamine Entity · reformed by A Positive Life</div></div></li>
-            <li><span class="n">A2</span><div><div class="title">Quick Reflections</div><div class="by">Parcel Pluto · Subsequent, SUB/100</div></div></li>
-            <li><span class="n">A3</span><div><div class="title">Recovery</div><div class="by">Undivided Space</div></div></li>
+            <li><span class="n">A1</span><div><a class="title" href="https://www.youtube.com/watch?v=qB2WkdFg-8A">Universal Entity</a><div class="by">Higher Intelligence Agency · Ketamine Entity reformed by A Positive Life</div></div></li>
+            <li><span class="n">A2</span><div><a class="title" href="https://www.youtube.com/watch?v=F08VfB1Rsng">Quick Reflections</a><div class="by">Parcel Pluto · Subsequent, SUB/100</div></div></li>
+            <li><span class="n">A3</span><div><a class="title" href="https://www.youtube.com/watch?v=6R6zxFfpJIg">Recovery</a><div class="by">Undivided Space</div></div></li>
           </ol>
         </div>
         <div class="shelf">
           <h3>Watching</h3>
           <ol class="tracks">
-            <li><span class="n">B1</span><div><div class="title">Titicut Follies</div><div class="by">Frederick Wiseman · 1967</div></div></li>
-            <li><span class="n">B2</span><div><div class="title">Trouble the Water</div><div class="by">Tia Lessin &amp; Carl Deal · 2008</div></div></li>
-            <li><span class="n">B3</span><div><div class="title">Mr. Nobody Against Putin</div><div class="by">David Borenstein &amp; Pavel Talankin · 2025</div></div></li>
+            <li><span class="n">B1</span><div><a class="title" href="https://en.wikipedia.org/wiki/Titicut_Follies">Titicut Follies</a><div class="by">Frederick Wiseman · 1967</div></div></li>
+            <li><span class="n">B2</span><div><a class="title" href="https://en.wikipedia.org/wiki/Trouble_the_Water">Trouble the Water</a><div class="by">Tia Lessin &amp; Carl Deal · 2008</div></div></li>
+            <li><span class="n">B3</span><div><a class="title" href="https://en.wikipedia.org/wiki/Mr_Nobody_Against_Putin">Mr. Nobody Against Putin</a><div class="by">David Borenstein &amp; Pavel Talankin · 2025</div></div></li>
           </ol>
         </div>
       </div>
