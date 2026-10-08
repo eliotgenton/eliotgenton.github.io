@@ -78,6 +78,20 @@ p{margin:0 0 16px;max-width:65ch}
 .logo{flex:none;width:58px;height:58px;border-radius:50%;background:radial-gradient(circle at 50% 50%,rgba(233,227,214,.05),rgba(233,227,214,0) 70%);border:1px solid var(--line)}
 .project p{font-size:16px;margin:0}
 .project .links{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:auto;padding-top:10px;font-family:var(--mono);font-size:12px}
+.cv{list-style:none;margin:28px 0 0;padding:0;max-width:260px;border-top:1px solid var(--line)}
+.cv li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;line-height:1.35}
+.cv .y{font-family:var(--mono);font-size:11px;color:var(--glow);padding-top:2px;font-variant-numeric:tabular-nums}
+.cv i{display:block;font-style:normal;font-size:12.5px;color:var(--mist);margin-top:1px}
+.wip{margin-top:30px;border:1px dashed rgba(233,227,214,.22);border-radius:6px;padding:14px 14px 10px;max-width:260px}
+.wip-h{font-family:var(--display);font-size:17px;line-height:1.25;margin:0 0 4px;font-variation-settings:"SOFT" 100,"opsz" 30}
+.wip-sub{font-size:13px;line-height:1.45;color:var(--mist);margin:0 0 10px}
+.wip ul{list-style:none;margin:0;padding:0}
+.wip li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.35}
+.wip li em{display:block;font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mist);margin-top:3px}
+.wip .dot{flex:none;width:7px;height:7px;border-radius:50%;margin-top:6px;animation:wip 2.4s ease-in-out infinite}
+.wip li+li .dot{animation-delay:1.2s}
+@keyframes wip{50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.wip .dot{animation:none}}
 .note{margin-top:26px;font-size:15px;color:var(--mist);border-left:2px solid var(--glow);padding-left:14px;max-width:60ch}
 .screens{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:8px}
 @media (max-width:900px){.screens{grid-template-columns:1fr}}
@@ -135,6 +149,7 @@ footer{padding:36px clamp(16px,6vw,88px) 48px;font-family:var(--mono);font-size:
     <li><a href="#talks">talks</a></li>
     <li><a href="#press">press</a></li>
     <li><a href="#off-the-clock">off the clock</a></li>
+    <li><a href="/thoughts/">thoughts</a></li>
     <li><a href="#contact">contact</a></li>
   </ul>
 </nav>
@@ -155,10 +170,21 @@ footer{padding:36px clamp(16px,6vw,88px) 48px;font-family:var(--mono);font-size:
 
 <main>
   <section id="about" aria-labelledby="about-h">
-    <div class="label">about<span>PhD candidate · Fellow</span></div>
+    <div class="side">
+      <div class="label">about<span>PhD candidate · Fellow</span></div>
+      <ol class="cv" aria-label="CV highlights">
+        <li><span class="y">2026&ndash;</span><span>Fellow, Harvard Physics<i>BAEF</i></span></li>
+        <li><span class="y">2023&ndash;</span><span>PhD, ULB<i>F.R.S.-FNRS Aspirant</i></span></li>
+        <li><span class="y">2022</span><span>Master&rsquo;s thesis, Harvard<i>IceCube</i></span></li>
+        <li><span class="y"></span><span>Chiba University<i>IceCube hardware</i></span></li>
+        <li><span class="y">2021</span><span>CERN<i>summer student</i></span></li>
+        <li><span class="y"></span><span>ENS Paris<i>master&rsquo;s</i></span></li>
+        <li><span class="y"></span><span>Manchester<i>BSc &amp; MSc · Erasmus, FU Berlin</i></span></li>
+      </ol>
+    </div>
     <div class="about">
       <div>
-        <h2 id="about-h">Physicist, record digger, European.</h2>
+        <h2 id="about-h">Physicist, European.</h2>
         <p>I&rsquo;m a PhD student at the Université libre de Bruxelles (ULB) as an F.R.S.-FNRS Aspirant, and a Fellow in the Harvard Department of Physics, supported by the Belgian American Educational Foundation. I work in the IceCube and KM3NeT collaborations, supervised by Juan Antonio Aguilar at ULB and Carlos Argüelles at Harvard.</p>
         <p>I grew up in Brussels and studied in Manchester, Berlin and Paris, with a summer at CERN along the way. Away from the detectors I am learning the technical and policy sides of AI safety, I care about Europe&rsquo;s future in science and technology, and I spend too much time digging for acid house and ambient trance records. I play piano and harp, speak French, English, German and some Japanese, and dive whenever I can.</p>
       </div>
@@ -170,7 +196,17 @@ footer{padding:36px clamp(16px,6vw,88px) 48px;font-family:var(--mono);font-size:
   </section>
 
   <section id="research" aria-labelledby="research-h">
-    <div class="label">research<span>IceCube · KM3NeT</span></div>
+    <div class="side">
+      <div class="label">research<span>IceCube · KM3NeT</span></div>
+      <aside class="wip" aria-label="Interactive analysis walkthroughs">
+        <p class="wip-h">Interactive walkthroughs</p>
+        <p class="wip-sub">Each analysis as a hands-on notebook you can play with in the browser.</p>
+        <ul>
+          <li><span class="dot" style="background:#f0a85e"></span><span>Dark matter in the Sun<em>work in progress</em></span></li>
+          <li><span class="dot" style="background:#79bfdc"></span><span>Charm dimuons<em>work in progress</em></span></li>
+        </ul>
+      </aside>
+    </div>
     <div>
       <h2 id="research-h">Neutrinos as a window on dark matter and particle physics.</h2>
       <p>Neutrinos barely interact, so they cross the Sun, the Earth and the universe almost untouched. That makes them a unique messenger for physics we cannot see any other way. I use two neutrino telescopes to listen.</p>
@@ -184,7 +220,7 @@ footer{padding:36px clamp(16px,6vw,88px) 48px;font-family:var(--mono);font-size:
               <path d="M37 32 H56 M35.5 25 L53 15 M35.5 39 L53 49" stroke="#79bfdc" stroke-width="1.6" stroke-linecap="round" fill="none"/>
               <path d="M52 29 L56 32 L52 35 M49 13.6 L53 15 L51.2 18.8 M51.2 45.2 L53 49 L49 50.4" stroke="#79bfdc" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
             </svg>
-            <div><p class="meta">IceCube Upgrade · 3&ndash;500 GeV</p><h3>Dark matter in the Sun</h3></div>
+            <div><p class="meta">IceCube Upgrade</p><h3>Dark matter in the Sun</h3></div>
           </div>
           <p>Dark matter captured by the Sun can annihilate into neutrinos, the only particles able to escape its core. I co-led IceCube&rsquo;s study of how well the newly deployed Upgrade can see this signal, showing leading sensitivity to some dark matter models with three years of data.</p>
           <div class="links"><a href="https://arxiv.org/abs/2605.06600">arXiv:2605.06600</a><a href="https://icecube.wisc.edu/news/research/2026/05/dark-matter-annihilation-with-the-icecube-upgrade/">IceCube news</a></div>
