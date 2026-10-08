@@ -73,6 +73,9 @@ p{margin:0 0 16px;max-width:65ch}
 .projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:10px}
 @media (max-width:760px){.projects{grid-template-columns:1fr}}
 .project{background:var(--deep);border:1px solid var(--line);border-radius:6px;padding:24px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.project .head{display:flex;align-items:center;gap:16px;margin-bottom:6px}
+.project .head h3{margin:0}
+.logo{flex:none;width:58px;height:58px;border-radius:50%;background:radial-gradient(circle at 50% 50%,rgba(233,227,214,.05),rgba(233,227,214,0) 70%);border:1px solid var(--line)}
 .project p{font-size:16px;margin:0}
 .project .links{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:auto;padding-top:10px;font-family:var(--mono);font-size:12px}
 .note{margin-top:26px;font-size:15px;color:var(--mist);border-left:2px solid var(--glow);padding-left:14px;max-width:60ch}
@@ -80,7 +83,7 @@ p{margin:0 0 16px;max-width:65ch}
 @media (max-width:900px){.screens{grid-template-columns:1fr}}
 .screen{margin:0;display:flex;flex-direction:column;gap:12px;min-width:0}
 .frame{position:relative;aspect-ratio:4/3;max-width:100%;overflow:hidden;border-radius:6px;border:1px solid var(--line);background:#060c12}
-.frame iframe{position:absolute;left:0;top:-54px;width:100%;height:calc(100% + 100px);border:0}
+.frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .shield{position:absolute;inset:0;width:100%;border:0;background:transparent;cursor:pointer;display:flex;align-items:flex-end;justify-content:flex-start;padding:14px}
 .shield span{font-family:var(--mono);font-size:11px;color:var(--frost);background:rgba(14,18,25,.72);border:1px solid var(--line);border-radius:999px;padding:6px 12px}
 .screen figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;align-items:baseline}
@@ -173,14 +176,31 @@ footer{padding:36px clamp(16px,6vw,88px) 48px;font-family:var(--mono);font-size:
       <p>Neutrinos barely interact, so they cross the Sun, the Earth and the universe almost untouched. That makes them a unique messenger for physics we cannot see any other way. I use two neutrino telescopes to listen.</p>
       <div class="projects">
         <article class="project">
-          <p class="meta">IceCube Upgrade · 3&ndash;500 GeV</p>
-          <h3>Dark matter in the Sun</h3>
+          <div class="head">
+            <svg class="logo" viewBox="0 0 64 64" role="img" aria-label="Logo: neutrinos escaping the Sun">
+              <defs><radialGradient id="sun" cx="40%" cy="40%" r="65%"><stop offset="0" stop-color="#f6cf86"/><stop offset=".6" stop-color="#f0a85e"/><stop offset="1" stop-color="#c8662f"/></radialGradient></defs>
+              <circle cx="24" cy="32" r="12" fill="url(#sun)"/>
+              <circle cx="20.5" cy="29" r="2.4" fill="#0e1219"/><circle cx="26.5" cy="34.5" r="2.4" fill="#0e1219"/>
+              <path d="M37 32 H56 M35.5 25 L53 15 M35.5 39 L53 49" stroke="#79bfdc" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+              <path d="M52 29 L56 32 L52 35 M49 13.6 L53 15 L51.2 18.8 M51.2 45.2 L53 49 L49 50.4" stroke="#79bfdc" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            <div><p class="meta">IceCube Upgrade · 3&ndash;500 GeV</p><h3>Dark matter in the Sun</h3></div>
+          </div>
           <p>Dark matter captured by the Sun can annihilate into neutrinos, the only particles able to escape its core. I co-led IceCube&rsquo;s study of how well the newly deployed Upgrade can see this signal, showing leading sensitivity to some dark matter models with three years of data.</p>
           <div class="links"><a href="https://arxiv.org/abs/2605.06600">arXiv:2605.06600</a><a href="https://icecube.wisc.edu/news/research/2026/05/dark-matter-annihilation-with-the-icecube-upgrade/">IceCube news</a></div>
         </article>
         <article class="project">
-          <p class="meta">KM3NeT ORCA · ongoing</p>
-          <h3>Charm dimuons and reconstruction</h3>
+          <div class="head">
+            <svg class="logo" viewBox="0 0 64 64" role="img" aria-label="Logo: a neutrino producing two muon tracks">
+              <path d="M6 50 L22 38" stroke="#9ba4b4" stroke-width="1.4" stroke-dasharray="2.5 3" stroke-linecap="round" fill="none"/>
+              <path d="M22 38 L57 13" stroke="#f0a85e" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+              <path d="M22 38 L58 31" stroke="#79bfdc" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+              <circle cx="22" cy="38" r="3.2" fill="#e9e3d6"/>
+              <circle cx="34" cy="29.4" r="1.6" fill="#f0a85e"/><circle cx="45" cy="21.6" r="1.6" fill="#f0a85e"/>
+              <circle cx="35" cy="35.5" r="1.6" fill="#79bfdc"/><circle cx="47" cy="33.1" r="1.6" fill="#79bfdc"/>
+            </svg>
+            <div><p class="meta">KM3NeT ORCA · ongoing</p><h3>Charm dimuons and reconstruction</h3></div>
+          </div>
           <p>When a neutrino produces a charm quark, the detector can see two muon tracks instead of one. I am building a search for these dimuons in KM3NeT with likelihood and machine-learning reconstruction, and I set up an informal reconstruction forum where people working on event reconstruction across the detectors share methods and problems.</p>
           <div class="links"><a href="#outreach">See dimuon events</a></div>
         </article>
@@ -197,14 +217,14 @@ footer{padding:36px clamp(16px,6vw,88px) 48px;font-family:var(--mono);font-size:
       <div class="screens">
         <figure class="screen">
           <div class="frame">
-            <iframe title="IceCube event display" loading="lazy" src="/IceCube_EventDisplay/?tour=1&amp;theme=dark&amp;panel=0&amp;ocean=0"></iframe>
+            <iframe title="IceCube event display" loading="lazy" src="/IceCube_EventDisplay/?tour=1&amp;theme=dark&amp;panel=0&amp;ocean=1"></iframe>
             <button class="shield" type="button" aria-label="Interact with the IceCube event display"><span>click to explore</span></button>
           </div>
           <figcaption><b>IceCube</b><span class="meta">89 simulated &nu;&mu; events · Prometheus · <a href="/IceCube_EventDisplay/">full screen</a></span></figcaption>
         </figure>
         <figure class="screen">
           <div class="frame">
-            <iframe title="KM3NeT event display" loading="lazy" src="/km3net_event_display/examples/showcase.html?tour=1&amp;theme=dark&amp;panel=0&amp;ocean=0"></iframe>
+            <iframe title="KM3NeT event display" loading="lazy" src="/km3net_event_display/examples/showcase.html?tour=1&amp;theme=dark&amp;panel=0&amp;ocean=1"></iframe>
             <button class="shield" type="button" aria-label="Interact with the KM3NeT event display"><span>click to explore</span></button>
           </div>
           <figcaption><b>KM3NeT</b><span class="meta">ORCA18 charm dimuons · 115-DU · <a href="/km3net_event_display/">full screen</a></span></figcaption>
@@ -217,7 +237,7 @@ footer{padding:36px clamp(16px,6vw,88px) 48px;font-family:var(--mono);font-size:
   <section id="publications" aria-labelledby="pub-h">
     <div class="label">publications<span><a href="https://inspirehep.net/authors/2751215">full list on INSPIRE</a></span></div>
     <div>
-      <h2 id="pub-h">Papers I led or contributed to directly.</h2>
+      <h2 id="pub-h">Work I led.</h2>
       <ol class="pubs">
         <li>
           <div class="yr">2026</div>
@@ -233,14 +253,6 @@ footer{padding:36px clamp(16px,6vw,88px) 48px;font-family:var(--mono);font-size:
             <div class="t">Prospective Sensitivity to WIMP Dark Matter with the IceCube Upgrade</div>
             <p class="who">IceCube Collaboration · 39th International Cosmic Ray Conference, Geneva</p>
             <span class="role">corresponding author</span><a class="meta" href="https://pos.sissa.it/501/486/">PoS(ICRC2025)486</a> · <a class="meta" href="https://arxiv.org/abs/2507.14943">arXiv:2507.14943</a>
-          </div>
-        </li>
-        <li>
-          <div class="yr">2025</div>
-          <div>
-            <div class="t">Observation of an ultra-high-energy cosmic neutrino with KM3NeT</div>
-            <p class="who">KM3NeT Collaboration · Nature 638, 376 (2025)</p>
-            <span class="role">tau regeneration</span><a class="meta" href="https://www.nature.com/articles/s41586-024-08543-1">nature.com</a>
           </div>
         </li>
       </ol>
@@ -303,7 +315,7 @@ footer{padding:36px clamp(16px,6vw,88px) 48px;font-family:var(--mono);font-size:
           <h3>Watching</h3>
           <ol class="tracks">
             <li><span class="n">B1</span><div><div class="title">Titicut Follies</div><div class="by">Frederick Wiseman · 1967</div></div></li>
-            <li><span class="n">B2</span><div><div class="title">Troubled Waters</div></div></li>
+            <li><span class="n">B2</span><div><div class="title">Trouble the Water</div><div class="by">Tia Lessin &amp; Carl Deal · 2008</div></div></li>
             <li><span class="n">B3</span><div><div class="title">Mr. Nobody Against Putin</div><div class="by">David Borenstein &amp; Pavel Talankin · 2025</div></div></li>
           </ol>
         </div>
@@ -346,6 +358,25 @@ footer{padding:36px clamp(16px,6vw,88px) 48px;font-family:var(--mono);font-size:
   });
   document.querySelectorAll('.shield').forEach(function (s) {
     s.addEventListener('click', function () { s.remove(); });
+  });
+
+  // Embedded displays: hide the control bars, keep the scene, shrink the overlays.
+  var embedCss = '#topbar,#timeline,#status{display:none!important}' +
+    'html,body{height:100%!important;min-height:0!important;overflow:hidden!important}' +
+    '#app{grid-template-rows:1fr!important;height:100%!important;min-height:0!important;max-height:100%!important;padding:0!important;gap:0!important}' +
+    '#main{height:100%!important;min-height:0!important}' +
+    '#tour-card{zoom:.62}#info{zoom:.8}#cbar{zoom:.7}';
+  document.querySelectorAll('.frame iframe').forEach(function (f) {
+    function fix() {
+      try {
+        var d = f.contentDocument;
+        if (!d || !d.head || d.getElementById('__embed')) return;
+        var s = d.createElement('style'); s.id = '__embed'; s.textContent = embedCss; d.head.appendChild(s);
+        f.contentWindow.dispatchEvent(new Event('resize'));
+      } catch (e) {}
+    }
+    f.addEventListener('load', function () { fix(); setTimeout(fix, 1500); });
+    fix();
   });
 
   var cv = document.getElementById('ice'), ctx = cv.getContext('2d');
@@ -418,7 +449,3 @@ footer{padding:36px clamp(16px,6vw,88px) 48px;font-family:var(--mono);font-size:
 </script>
 </body>
 </html>
-<style>.frame iframe{top:0!important;height:100%!important}</style>
-<script>
-(function(){var css="#topbar,#timeline{display:none!important}html,body{height:100%!important;min-height:0!important;overflow:hidden!important}#app{grid-template-rows:1fr!important;height:100%!important;min-height:0!important;max-height:100%!important;padding:0!important;gap:0!important}#main{height:100%!important;min-height:0!important}";document.querySelectorAll(".frame iframe").forEach(function(f){function fix(){try{var d=f.contentDocument;if(!d||!d.head||d.getElementById("__embed"))return;var s=d.createElement("style");s.id="__embed";s.textContent=css;d.head.appendChild(s);f.contentWindow.dispatchEvent(new Event("resize"));}catch(e){}}f.addEventListener("load",function(){fix();setTimeout(fix,1500);});fix();});})();
-</script>
